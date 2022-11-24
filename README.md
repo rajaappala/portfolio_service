@@ -1,2 +1,2 @@
-# portfolio_service
+# Portfolio service
 Backend for portfolio app
