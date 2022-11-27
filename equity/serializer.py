@@ -1,6 +1,4 @@
-from dataclasses import fields
-from pyexpat import model
-from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
 from equity.models import Script
 from equity.models import ScriptDetail
 
@@ -13,7 +11,7 @@ class ScriptSerializer(ModelSerializer):
         return Script.objects.create(**validated_data)
 
 
-class ScriptDetailSerializer(ModelSerializer):
+class ScriptDetailSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = ScriptDetail
         fields = '__all__'

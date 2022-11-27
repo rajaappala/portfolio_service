@@ -1,7 +1,7 @@
-from django.urls import path, include
+from rest_framework.routers import SimpleRouter
+from equity import views
 
-from equity.views import ScriptView
-
-urlpatterns = [
-    path('script', ScriptView.as_view())
-]
+# Create a router and register our viewsets with it.
+router = SimpleRouter()
+router.register('equity/script', views.ScriptViewSet)
+router.register('equity/script-detail', views.ScriptDetailsViewSet)
