@@ -1,6 +1,5 @@
 from rest_framework.serializers import ModelSerializer, HyperlinkedModelSerializer
-from equity.models import Script
-from equity.models import ScriptDetail
+from equity.models import Script, ScriptDetail, Dividend, Bonus, Split
 
 class ScriptSerializer(ModelSerializer):
     class Meta:
@@ -18,3 +17,21 @@ class ScriptDetailSerializer(HyperlinkedModelSerializer):
 
     def create(self, validated_data):
         return ScriptDetail.objects.create(**validated_data)
+
+
+class DividendSerializer(ModelSerializer):
+    class Meta:
+        model = Dividend
+        fields = '__all__'
+
+
+class BonusSerializer(ModelSerializer):
+    class Meta:
+        model = Bonus
+        fields = '__all__'
+
+
+class SplitSerializer(ModelSerializer):
+    class Meta:
+        model = Split
+        fields = '__all__'
